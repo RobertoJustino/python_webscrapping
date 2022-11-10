@@ -1,5 +1,6 @@
-Flask
-mysql-connector
+flask
 bs4
 pandas
 lxml
+sqlalchemy
+mysql.connector

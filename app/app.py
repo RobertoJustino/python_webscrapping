@@ -1,9 +1,12 @@
 from flask import Flask, render_template
-import mysql.connector
 import urllib
 from urllib import request
+import mysql.connector
 import bs4
 import pandas
+import sqlalchemy
+from sqlalchemy import create_engine
+from sqlalchemy.types import VARCHAR
 
 app=Flask(__name__,template_folder='templates')
 
@@ -145,33 +148,32 @@ def getDataScrappingGames() :
             list_etats_final[i] = "Neuf"
     #-----------------------------------------------------------------------------
 
-    df = pandas.DataFrame.from_dict( {'ID' : list_ids, 'nom_jeux' : list_noms_final, 'urls' : list_images_final, 'prix' : list_prix_final, 'zone_import' : list_regions_final, 'etat' : list_etats_final})
+    df = pandas.DataFrame.from_dict( {'id' : list_ids, 'nom_jeux' : list_noms_final, 'img_src' : list_images_final, 'prix' : list_prix_final, 'region' : list_regions_final, 'etat' : list_etats_final}).set_index('id')
     return df
 
 
-config = {
+""" config = {
     'user': 'root',
     'password': 'root',
     'host': 'db',
     'port': '3306',
     'database': 'gamesdb'
-}
+} """
 
 # READ ALL DATA
 def games():
-    connection = mysql.connector.connect(**config)
-    cursor = connection.cursor()
-    cursor.execute('SELECT * FROM games')
-    results = cursor.fetchall()
-    cursor.close()
-    connection.close()
+    #Connexion à la base de données
+    engine = sqlalchemy.create_engine('mysql+mysqlconnector://root:root@db:3306/gamesdb')
+    #Conversion du dataframe en tableau SQL (le dtype est utilisé ici pour spécifier la longueur de mon index sinon la table ne peut pas se créer)
+    getDataScrappingGames().to_sql('games', engine, if_exists='replace', index=True, dtype={'id': VARCHAR(getDataScrappingGames().index.get_level_values('id').str.len().max())})
+    results = engine.execute("SELECT * FROM games").fetchall()
+    engine.dispose()
 
     return results
 
 @app.route('/')
 def index():
-    return render_template('index.html', gamesSQL=games(), tables=[getDataScrappingGames().to_html(classes='data')], titles=getDataScrappingGames().columns.values)
-
+    return render_template('index.html', gamesSQL=games())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

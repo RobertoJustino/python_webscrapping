@@ -4,11 +4,11 @@
 
 ### Utilisation de BeautifulSoup et Pandas
 
-  Les packages pour scrapper des pages HTML : 
+Les packages pour scrapper des pages HTML : 
 - BeautifulSoup (pip3 install bs4)
 - urllib 
 
-  Le package pour travailler sur le dataset :
+Le package pour travailler sur le dataset :
 - pandas
 
 ## Problématique du projet  
@@ -31,4 +31,21 @@
 - Region du produit : Zone Import
 - Etat du produit : Occasion ou Neuf
 
-#### Lien Jupyter Notebook : https://github.com/RobertoJustino/python_webscrapping/blob/main/python_scraping_trader_games.ipynb
+#### Récupération des données - Jupyter Notebook : https://github.com/RobertoJustino/python_webscrapping/blob/main/python_scraping_trader_games.ipynb
+
+## Enregistrement du dataset dans une base de données MySql et une application Flask
+
+- Base de données : MySQL
+- Package utilisées : Flask, Pandas, Sqlalchemy
+- Vue des données : HTML, CSS
+
+
+## Lancement du projet 
+
+- télécharger le projet .zip et extraire son contenu dans un dossier 
+- se mettre à la racine du projet et avec docker installé sur votre machine, rentrer dans un terminal : docker-compose up -d
+
+
+
+
+
