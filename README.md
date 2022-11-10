@@ -53,7 +53,9 @@ Le package pour travailler sur le dataset :
 - copier coller le contenu du fichier init.sql dans le terminal
 - quittez avec ```exit```
 
+## Capture d'écran de l'application affichant le dataset
 
+![image](capture-ecran-app.png)
 
 
 
