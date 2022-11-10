@@ -31,7 +31,7 @@ Le package pour travailler sur le dataset :
 - Region du produit : Zone Import
 - Etat du produit : Occasion ou Neuf
 
-#### Récupération des données - Jupyter Notebook : https://github.com/RobertoJustino/python_webscrapping/blob/main/python_scraping_trader_games.ipynb
+#### Récupération des données - Jupyter Notebook (A ouvrir sur Jupyter, problème d'affichage sur github) : https://github.com/RobertoJustino/python_webscrapping/blob/main/python_scraping_trader_games.ipynb
 
 ## Enregistrement du dataset dans une base de données MySql et une application Flask
 
