@@ -5,7 +5,7 @@
 ### Utilisation de BeautifulSoup et Pandas
 
 Les packages pour scrapper des pages HTML : 
-- BeautifulSoup (pip3 install bs4)
+- BeautifulSoup
 - urllib 
 
 Le package pour travailler sur le dataset :
@@ -44,15 +44,14 @@ Le package pour travailler sur le dataset :
 
 - télécharger le projet .zip et extraire son contenu dans un dossier 
 - se mettre à la racine du projet et avec docker installé sur votre machine, rentrer dans un terminal : 
-    - docker-compose build
-    - docker-compose up -d  
+    - ```docker-compose build```
+    - ```docker-compose up -d```
 
-
-  si il y a une erreur et l'application ne fonctionne pas à cause d'un problème de bdd:  
-- se connecter au container mysql : docker exec -it <nom-du-container-db> bash
-- se connecter a mysql : mysql -uroot -proot (vous vous retrouverez dans le terminal de mysql. )
+##### si il y a une erreur et l'application ne fonctionne pas à cause d'un problème de bdd:  
+- se connecter au container mysql : ```docker exec -it <nom-du-container-db> bash```
+- se connecter a mysql : ```mysql -uroot -proot``` (vous vous retrouverez dans le terminal de mysql. )
 - copier coller le contenu du fichier init.sql dans le terminal
-- quittez avec exit
+- quittez avec ```exit```
 
 
 
